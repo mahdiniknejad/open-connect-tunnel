@@ -1,7 +1,7 @@
 #!/bin/bash
 
 apt update -y
-apt install ocserv certbot stunnel4 openssl -y
+apt install ocserv certbot -y
 echo "OpenConnect And Stunnel have installed successfuly"
 
 read -p "Your Valid Domain : " domain
@@ -27,6 +27,9 @@ systemctl restart ocserv.service
 
 chmod +x nat_config/nat.sh
 ./nat_config/nat.sh
+
+apt update -y
+apt install stunnel4 openssl -y
 
 if [[ -f /usr/lib/systemd/system/stunnel.service ]]; then
     rm /usr/lib/systemd/system/stunnel.service
