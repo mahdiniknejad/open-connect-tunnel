@@ -2,7 +2,10 @@
 
 ```text
 ** you need two vps for Using the tunnels.
-the first vps will be used by the client called mediator server (your mobile, laptop, or every device in which you can install OpenConnect or Cisco Any Connect) and the second one called host will be connect to the client server (you have to install OpenConnect in that)
+the first vps will be used by the client called mediator server
+(your mobile, laptop, or every device in which you can install 
+OpenConnect or Cisco Any Connect) and the second one called host will be 
+connect to the client server (you have to install OpenConnect in that)
 ```
 
 ## VPS
